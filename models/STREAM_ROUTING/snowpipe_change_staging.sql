@@ -1,10 +1,10 @@
 {{
   config(
-    database='DEV_SNOWPIPE_DB',
-    schema='PUBLIC',
+    database='DEV_PG_RDS_REPLICATION',
+    schema='POSTGRES_STREAMS',
     materialized='table',
   )
 }}
 
 
-SELECT "DATABASE", "TABLE", DATA FROM STREAM_STAGING_S3
+SELECT "DATABASE", "TABLE", DATA FROM "DEV_PG_RDS_REPLICATION"."POSTGRES_STREAMS".PG_KAFKA_STREAM
