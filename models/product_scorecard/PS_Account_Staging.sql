@@ -7,6 +7,6 @@
                       )
                     }}
 
-SELECT  *
+SELECT  b.*
 FROM
 {{ref('account')}} a join ACCOUNT_STREAM b on a.uuid = b.uuid

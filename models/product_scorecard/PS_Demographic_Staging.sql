@@ -7,6 +7,6 @@
                       )
                     }}
 
-SELECT  *
+SELECT  b.*
 FROM
-{{ref('demographic')}} a join ACCOUNT_STREAM b on a.uuid = b.uuid
+{{ref('demographic')}} a join DEMOGRAPHIC_STREAM b on a.uuid = b.uuid

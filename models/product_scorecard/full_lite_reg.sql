@@ -51,7 +51,7 @@ SELECT a."UUID",
       data:INTENDEDTRANSFERDATE as INTENDEDTRANSFERDATE,
       d.PG_ROW_VALID_FROM_TS
   
-FROM {{ref('PS_Demographic_Staging')}} d JOIN {{ref('PS_Account_Staging')}} a on a.uuid = d.uuid), 
+FROM {{ref('account')}} a JOIN {{ref('demographic')}} d on a.uuid = d.uuid), 
 
 regs as (
   
@@ -391,7 +391,7 @@ WHEN  leadUserRole = 'transfer'
 ELSE null
 END as full_reg_converted_ts, 
   
-CASE WHEN email is null
+CASE WHEN email is not null
           AND first is null
           AND last is null
           AND birth is null THEN PG_ROW_VALID_FROM_TS
